@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Contact Us - Mustard Seed Café</title>
-  <meta name="description" content="Get in touch with Mustard Seed Café for questions, feedback, or catering enquiries." />
+  <title>About Us - Mustard Seed Café</title>
+  <meta name="description" content="Learn about Mustard Seed Café, founded by Anthony Ferraro inside Trinity Christian School, Wanniassa." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -35,11 +35,11 @@
   <header class="sticky top-0 z-50 bg-[var(--cream)]/90 backdrop-blur grain border-b border-black/5">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between">
       <a href="index.html" class="flex items-center gap-3 group">
-        <img src="../logo.png" alt="Mustard Seed Café Logo" class="w-50 h-50 rounded-full ring-2 ring-black/10 transition-transform group-hover:scale-110" style="width: 200px; height: 200px;" />
+        <img src="logo.png" alt="Mustard Seed Café Logo" class="w-50 h-50 rounded-full ring-2 ring-black/10 transition-transform group-hover:scale-110" style="width: 200px; height: 200px;" />
       </a>
       <nav class="hidden md:flex items-center gap-6 text-sm" aria-label="Main navigation">
         <a href="index.html" class="hover:text-[var(--mustard)] transition-colors">Home</a>
-        <a href="about.html" class="hover:text-[var(--mustard)] transition-colors">About</a>
+        <a href="about.html" class="text-[var(--mustard)] font-medium">About</a>
         <a href="mission.html" class="hover:text-[var(--mustard)] transition-colors">Mission</a>
         <a href="hours.html" class="hover:text-[var(--mustard)] transition-colors">Hours</a>
         <a href="gallery.html" class="hover:text-[var(--mustard)] transition-colors">Gallery</a>
@@ -52,7 +52,7 @@
     <div id="mobileNav" class="md:hidden hidden border-t border-black/5" aria-label="Mobile navigation">
       <nav class="px-4 py-3 grid gap-3 text-sm">
         <a href="index.html" class="py-1 hover:text-[var(--mustard)] transition-colors">Home</a>
-        <a href="about.html" class="py-1 hover:text-[var(--mustard)] transition-colors">About</a>
+        <a href="about.html" class="text-[var(--mustard)] font-medium py-1">About</a>
         <a href="mission.html" class="py-1 hover:text-[var(--mustard)] transition-colors">Mission</a>
         <a href="hours.html" class="py-1 hover:text-[var(--mustard)] transition-colors">Hours</a>
         <a href="gallery.html" class="py-1 hover:text-[var(--mustard)] transition-colors">Gallery</a>
@@ -63,61 +63,23 @@
     </div>
   </header>
 
-  <!-- Contact & Catering -->
-  <section class="py-16 md:py-24 bg-white">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 grid lg:grid-cols-2 gap-12">
+  <!-- About -->
+  <section class="py-16 md:py-24">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 grid md:grid-cols-2 gap-12 items-center">
       <div>
-        <h1 class="text-4xl font-bold">Say hello</h1>
-        <p class="mt-2 text-black/70">Questions, feedback, or a simple coffee chat—drop us a note.</p>
-        <form id="contactForm" class="mt-6 grid gap-3" onsubmit="return handleContact(event)">
-          <label class="grid gap-1">
-            <span class="text-sm font-medium">Name <span class="text-red-500">*</span></span>
-            <input required class="border rounded px-3 py-2 focus:ring-2 focus:ring-[var(--mustard)] focus:border-transparent outline-none transition-all" name="name" placeholder="Your name" />
-          </label>
-          <label class="grid gap-1">
-            <span class="text-sm font-medium">Email <span class="text-red-500">*</span></span>
-            <input required type="email" class="border rounded px-3 py-2 focus:ring-2 focus:ring-[var(--mustard)] focus:border-transparent outline-none transition-all" name="email" placeholder="you@example.com" />
-          </label>
-          <label class="grid gap-1">
-            <span class="text-sm font-medium">Message <span class="text-red-500">*</span></span>
-            <textarea required class="border rounded px-3 py-2 focus:ring-2 focus:ring-[var(--mustard)] focus:border-transparent outline-none transition-all" name="message" rows="4" placeholder="How can we help?" ></textarea>
-          </label>
-          <button type="submit" class="mt-2 px-4 py-2 rounded bg-[var(--mustard)] text-[var(--charcoal)] font-medium w-max hover:bg-[var(--mustard)]/90 transition-all hover:shadow-lg">Send Message</button>
-          <p id="contactNote" class="text-sm text-green-700 hidden" role="status">✓ Thanks! We'll reply soon.</p>
-        </form>
+        <h1 class="text-4xl font-bold">About us</h1>
+        <p class="mt-4 leading-relaxed">Mustard Seed Cafe began with a simple idea — that when people are given a welcoming place to gather, something good has room to grow.</p>
+        <p class="mt-4 leading-relaxed">Founded by Anthony Ferraro, former owner of Little Theo's, the café sits within the grounds of Trinity Christian School, Wanniassa, serving students, families, faculty and friends from across the Trinity community. It's a shared space built on kindness, connection and the belief that hospitality, when done well, can bring people closer together.</p>
+        <p class="mt-4 leading-relaxed">Each morning, the café comes to life with kindergarten drop-offs, running club members and their families, and parents taking a moment to pause before the day begins. By lunchtime, students from kindergarten through to Year 12 are enjoying meals ordered through FlexiSchools — food prepared with care, intended to nourish growing bodies and busy minds.</p>
+        <p class="mt-4 leading-relaxed">Here, artisan coffee, poke bowls and sushi sit happily alongside sausage rolls, pies and chocolate donuts — a thoughtful blend of modern café culture and old-school comfort. It's food that feels familiar, served with generosity and heart.</p>
+        <p class="mt-4 leading-relaxed">Open Monday to Friday from 7:30am to 2:30pm, Mustard Seed Cafe is a place to gather, to rest, and to share. A small beginning, planted with purpose — and growing alongside the community it serves.</p>
+        <div class="mt-8">
+          <a href="mission.html" class="px-6 py-3 bg-[var(--mustard)] text-[var(--charcoal)] font-medium rounded-lg hover:bg-[var(--mustard)]/90 transition-colors">Read Our Mission Statement</a>
+        </div>
       </div>
-
-      <div>
-        <h1 class="text-4xl font-bold">Catering enquiries</h1>
-        <p class="mt-2 text-black/70">Simple platters & drinks for meetings, assemblies, or school events.</p>
-        <form id="cateringForm" class="mt-6 grid gap-3" onsubmit="return handleCatering(event)">
-          <div class="grid grid-cols-2 gap-3">
-            <label class="grid gap-1">
-              <span class="text-sm font-medium">Name <span class="text-red-500">*</span></span>
-              <input required class="border rounded px-3 py-2 focus:ring-2 focus:ring-[var(--mustard)] focus:border-transparent outline-none transition-all" name="name" />
-            </label>
-            <label class="grid gap-1">
-              <span class="text-sm font-medium">Email <span class="text-red-500">*</span></span>
-              <input required type="email" class="border rounded px-3 py-2 focus:ring-2 focus:ring-[var(--mustard)] focus:border-transparent outline-none transition-all" name="email" />
-            </label>
-          </div>
-          <div class="grid grid-cols-2 gap-3">
-            <label class="grid gap-1">
-              <span class="text-sm font-medium">Date <span class="text-red-500">*</span></span>
-              <input required type="date" class="border rounded px-3 py-2 focus:ring-2 focus:ring-[var(--mustard)] focus:border-transparent outline-none transition-all" name="date" />
-            </label>
-            <label class="grid gap-1">
-              <span class="text-sm font-medium">Headcount <span class="text-red-500">*</span></span>
-              <input required type="number" min="1" class="border rounded px-3 py-2 focus:ring-2 focus:ring-[var(--mustard)] focus:border-transparent outline-none transition-all" name="headcount" placeholder="e.g. 20" />
-            </label>
-          </div>
-          <label class="grid gap-1">
-            <span class="text-sm font-medium">Notes</span>
-            <textarea class="border rounded px-3 py-2 focus:ring-2 focus:ring-[var(--mustard)] focus:border-transparent outline-none transition-all" name="notes" rows="4" placeholder="Dietary needs, timing, budget"></textarea>
-          </label>
-          <button type="submit" class="mt-2 px-4 py-2 rounded bg-[var(--charcoal)] text-white font-medium w-max hover:bg-[var(--charcoal)]/90 transition-all hover:shadow-lg">Request Quote</button>
-          <p id="cateringNote" class="text-sm text-green-700 hidden" role="status">✓ Thanks! We'll email you a quote.</p>
-        </form>
+      <div class="relative">
+        <img class="rounded-2xl shadow-lg w-full h-auto" src="images/img2.png" alt="Cozy cafe interior with warm lighting and comfortable seating" loading="lazy" />
+        <div class="absolute -bottom-4 -right-4 bg-[var(--mustard)] text-[var(--charcoal)] rounded-xl shadow-lg px-4 py-3 font-semibold">Open Weekdays 7:30–2:30</div>
       </div>
     </div>
   </section>
@@ -167,25 +129,6 @@
         btn.setAttribute('aria-expanded', 'false');
       });
     });
-
-    // Contact & Catering forms
-    function handleContact(e) { 
-      e.preventDefault(); 
-      const note = document.getElementById('contactNote');
-      note.classList.remove('hidden'); 
-      e.target.reset();
-      setTimeout(() => note.classList.add('hidden'), 5000);
-      return false; 
-    }
-    
-    function handleCatering(e) { 
-      e.preventDefault(); 
-      const note = document.getElementById('cateringNote');
-      note.classList.remove('hidden'); 
-      e.target.reset();
-      setTimeout(() => note.classList.add('hidden'), 5000);
-      return false; 
-    }
 
     // Year
     document.getElementById('year').textContent = new Date().getFullYear();

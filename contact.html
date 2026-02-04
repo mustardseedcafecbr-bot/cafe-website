@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Find Us - Mustard Seed Café</title>
-  <meta name="description" content="Find Mustard Seed Café inside Trinity Christian School at 34 McBryde Cres, Wanniassa ACT 2903." />
+  <title>Contact Us - Mustard Seed Café</title>
+  <meta name="description" content="Get in touch with Mustard Seed Café for questions, feedback, or catering enquiries." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -35,7 +35,7 @@
   <header class="sticky top-0 z-50 bg-[var(--cream)]/90 backdrop-blur grain border-b border-black/5">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between">
       <a href="index.html" class="flex items-center gap-3 group">
-        <img src="../logo.png" alt="Mustard Seed Café Logo" class="w-50 h-50 rounded-full ring-2 ring-black/10 transition-transform group-hover:scale-110" style="width: 200px; height: 200px;" />
+        <img src="logo.png" alt="Mustard Seed Café Logo" class="w-50 h-50 rounded-full ring-2 ring-black/10 transition-transform group-hover:scale-110" style="width: 200px; height: 200px;" />
       </a>
       <nav class="hidden md:flex items-center gap-6 text-sm" aria-label="Main navigation">
         <a href="index.html" class="hover:text-[var(--mustard)] transition-colors">Home</a>
@@ -44,7 +44,7 @@
         <a href="hours.html" class="hover:text-[var(--mustard)] transition-colors">Hours</a>
         <a href="gallery.html" class="hover:text-[var(--mustard)] transition-colors">Gallery</a>
         <a href="loyalty.html" class="hover:text-[var(--mustard)] transition-colors">Loyalty</a>
-        <a href="findus.html" class="text-[var(--mustard)] font-medium">Find us</a>
+        <a href="findus.html" class="hover:text-[var(--mustard)] transition-colors">Find us</a>
         <a href="contact.html" class="px-4 py-2 rounded-full bg-[var(--mustard)] text-[var(--charcoal)] font-medium hover:bg-[var(--mustard)]/90 transition-all hover:shadow-lg">Contact</a>
       </nav>
       <button id="mobileBtn" class="md:hidden p-2 rounded hover:bg-black/5 transition-colors" aria-label="Toggle menu" aria-expanded="false">☰</button>
@@ -57,23 +57,67 @@
         <a href="hours.html" class="py-1 hover:text-[var(--mustard)] transition-colors">Hours</a>
         <a href="gallery.html" class="py-1 hover:text-[var(--mustard)] transition-colors">Gallery</a>
         <a href="loyalty.html" class="py-1 hover:text-[var(--mustard)] transition-colors">Loyalty</a>
-        <a href="findus.html" class="text-[var(--mustard)] font-medium py-1">Find us</a>
+        <a href="findus.html" class="py-1 hover:text-[var(--mustard)] transition-colors">Find us</a>
         <a href="contact.html" class="py-2 px-3 rounded bg-[var(--mustard)] text-[var(--charcoal)] font-medium inline-block w-max hover:bg-[var(--mustard)]/90 transition-colors">Contact</a>
       </nav>
     </div>
   </header>
 
-  <!-- Find Us -->
-  <section class="py-16 md:py-24">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 grid lg:grid-cols-2 gap-8 items-center">
+  <!-- Contact & Catering -->
+  <section class="py-16 md:py-24 bg-white">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 grid lg:grid-cols-2 gap-12">
       <div>
-        <h1 class="text-4xl font-bold">Find us</h1>
-        <p class="mt-3 text-lg text-[var(--charcoal)]/80">We're located inside Trinity Christian School, Wanniassa.</p>
-        <address class="not-italic mt-6 text-xl font-medium">34 McBryde Cres<br>Wanniassa ACT 2903</address>
-        <a href="https://www.google.com/maps/search/?api=1&query=34+McBryde+Cres%2C+Wanniassa+ACT+2903" target="_blank" rel="noopener noreferrer" class="mt-6 inline-block px-6 py-3 rounded bg-[var(--charcoal)] text-white hover:bg-[var(--charcoal)]/90 transition-all hover:shadow-lg">Get Directions</a>
+        <h1 class="text-4xl font-bold">Say hello</h1>
+        <p class="mt-2 text-black/70">Questions, feedback, or a simple coffee chat—drop us a note.</p>
+        <form id="contactForm" class="mt-6 grid gap-3" onsubmit="return handleContact(event)">
+          <label class="grid gap-1">
+            <span class="text-sm font-medium">Name <span class="text-red-500">*</span></span>
+            <input required class="border rounded px-3 py-2 focus:ring-2 focus:ring-[var(--mustard)] focus:border-transparent outline-none transition-all" name="name" placeholder="Your name" />
+          </label>
+          <label class="grid gap-1">
+            <span class="text-sm font-medium">Email <span class="text-red-500">*</span></span>
+            <input required type="email" class="border rounded px-3 py-2 focus:ring-2 focus:ring-[var(--mustard)] focus:border-transparent outline-none transition-all" name="email" placeholder="you@example.com" />
+          </label>
+          <label class="grid gap-1">
+            <span class="text-sm font-medium">Message <span class="text-red-500">*</span></span>
+            <textarea required class="border rounded px-3 py-2 focus:ring-2 focus:ring-[var(--mustard)] focus:border-transparent outline-none transition-all" name="message" rows="4" placeholder="How can we help?" ></textarea>
+          </label>
+          <button type="submit" class="mt-2 px-4 py-2 rounded bg-[var(--mustard)] text-[var(--charcoal)] font-medium w-max hover:bg-[var(--mustard)]/90 transition-all hover:shadow-lg">Send Message</button>
+          <p id="contactNote" class="text-sm text-green-700 hidden" role="status">✓ Thanks! We'll reply soon.</p>
+        </form>
       </div>
-      <div class="rounded-xl overflow-hidden shadow-lg">
-        <iframe title="Map to Mustard Seed Café" width="100%" height="400" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=34%20McBryde%20Cres%2C%20Wanniassa%20ACT%202903&z=16&output=embed"></iframe>
+
+      <div>
+        <h1 class="text-4xl font-bold">Catering enquiries</h1>
+        <p class="mt-2 text-black/70">Simple platters & drinks for meetings, assemblies, or school events.</p>
+        <form id="cateringForm" class="mt-6 grid gap-3" onsubmit="return handleCatering(event)">
+          <div class="grid grid-cols-2 gap-3">
+            <label class="grid gap-1">
+              <span class="text-sm font-medium">Name <span class="text-red-500">*</span></span>
+              <input required class="border rounded px-3 py-2 focus:ring-2 focus:ring-[var(--mustard)] focus:border-transparent outline-none transition-all" name="name" />
+            </label>
+            <label class="grid gap-1">
+              <span class="text-sm font-medium">Email <span class="text-red-500">*</span></span>
+              <input required type="email" class="border rounded px-3 py-2 focus:ring-2 focus:ring-[var(--mustard)] focus:border-transparent outline-none transition-all" name="email" />
+            </label>
+          </div>
+          <div class="grid grid-cols-2 gap-3">
+            <label class="grid gap-1">
+              <span class="text-sm font-medium">Date <span class="text-red-500">*</span></span>
+              <input required type="date" class="border rounded px-3 py-2 focus:ring-2 focus:ring-[var(--mustard)] focus:border-transparent outline-none transition-all" name="date" />
+            </label>
+            <label class="grid gap-1">
+              <span class="text-sm font-medium">Headcount <span class="text-red-500">*</span></span>
+              <input required type="number" min="1" class="border rounded px-3 py-2 focus:ring-2 focus:ring-[var(--mustard)] focus:border-transparent outline-none transition-all" name="headcount" placeholder="e.g. 20" />
+            </label>
+          </div>
+          <label class="grid gap-1">
+            <span class="text-sm font-medium">Notes</span>
+            <textarea class="border rounded px-3 py-2 focus:ring-2 focus:ring-[var(--mustard)] focus:border-transparent outline-none transition-all" name="notes" rows="4" placeholder="Dietary needs, timing, budget"></textarea>
+          </label>
+          <button type="submit" class="mt-2 px-4 py-2 rounded bg-[var(--charcoal)] text-white font-medium w-max hover:bg-[var(--charcoal)]/90 transition-all hover:shadow-lg">Request Quote</button>
+          <p id="cateringNote" class="text-sm text-green-700 hidden" role="status">✓ Thanks! We'll email you a quote.</p>
+        </form>
       </div>
     </div>
   </section>
@@ -123,6 +167,25 @@
         btn.setAttribute('aria-expanded', 'false');
       });
     });
+
+    // Contact & Catering forms
+    function handleContact(e) { 
+      e.preventDefault(); 
+      const note = document.getElementById('contactNote');
+      note.classList.remove('hidden'); 
+      e.target.reset();
+      setTimeout(() => note.classList.add('hidden'), 5000);
+      return false; 
+    }
+    
+    function handleCatering(e) { 
+      e.preventDefault(); 
+      const note = document.getElementById('cateringNote');
+      note.classList.remove('hidden'); 
+      e.target.reset();
+      setTimeout(() => note.classList.add('hidden'), 5000);
+      return false; 
+    }
 
     // Year
     document.getElementById('year').textContent = new Date().getFullYear();
