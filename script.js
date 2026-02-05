@@ -119,7 +119,7 @@ function sendRegistrationEmail(name, email, dob, marketingConsent, userId) {
         registrationDate: registrationDate
     };
 
-    emailjs.send('service_79ke1ns', 'template_7c2wack', templateParams)
+    emailjs.send('service_sejwf6q', 'template_7c2wack', templateParams)
         .then(function(response) {
             console.log('Email sent successfully!', response.status, response.text);
         }, function(error) {
