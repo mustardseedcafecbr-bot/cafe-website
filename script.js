@@ -29,12 +29,111 @@ function checkForStampParameter() {
         localStorage.setItem('coffeeCount', count);
         updateDisplay();
         
-        // Show success message
-        alert('✅ Coffee stamp added! Thank you for your purchase!');
+        // Show prominent success message
+        showStampAddedMessage();
         
         // Clean URL (remove ?stamp=add parameter)
         window.history.replaceState({}, document.title, window.location.pathname);
     }
+}
+
+function showStampAddedMessage() {
+    // Remove any existing message
+    const existing = document.getElementById('stamp-success-overlay');
+    if (existing) existing.remove();
+    
+    // Determine message based on count
+    let message, emoji, subMessage;
+    if (count >= 4) {
+        message = "FREE COFFEE UNLOCKED!";
+        emoji = "🎉";
+        subMessage = "Show this screen to staff to redeem your free coffee!";
+    } else {
+        message = "STAMP ADDED!";
+        emoji = "✅";
+        subMessage = `You now have ${count} out of 4 stamps`;
+    }
+    
+    // Create overlay with success message
+    const overlay = document.createElement('div');
+    overlay.id = 'stamp-success-overlay';
+    overlay.style.cssText = `
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.8);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 9999;
+        animation: fadeIn 0.3s;
+    `;
+    
+    overlay.innerHTML = `
+        <div style="
+            background: white;
+            padding: 40px 30px;
+            border-radius: 20px;
+            text-align: center;
+            max-width: 90%;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+            animation: slideUp 0.3s;
+        ">
+            <div style="font-size: 80px; margin-bottom: 20px;">${emoji}</div>
+            <h2 style="
+                color: #D4A574;
+                font-size: 32px;
+                font-weight: bold;
+                margin: 0 0 15px 0;
+            ">${message}</h2>
+            <p style="
+                color: #2D2D2D;
+                font-size: 18px;
+                margin: 0 0 25px 0;
+            ">${subMessage}</p>
+            <div style="
+                display: flex;
+                gap: 10px;
+                justify-content: center;
+                font-size: 50px;
+                margin: 20px 0;
+            ">
+                ${'☕'.repeat(count)}${'<span style="opacity: 0.2;">☕</span>'.repeat(4 - count)}
+            </div>
+            <button onclick="this.parentElement.parentElement.remove()" style="
+                background: #D4A574;
+                color: white;
+                border: none;
+                padding: 15px 40px;
+                font-size: 18px;
+                border-radius: 10px;
+                cursor: pointer;
+                font-weight: bold;
+            ">Got it!</button>
+        </div>
+        <style>
+            @keyframes fadeIn {
+                from { opacity: 0; }
+                to { opacity: 1; }
+            }
+            @keyframes slideUp {
+                from { transform: translateY(50px); opacity: 0; }
+                to { transform: translateY(0); opacity: 1; }
+            }
+        </style>
+    `;
+    
+    document.body.appendChild(overlay);
+    
+    // Auto-remove after 8 seconds
+    setTimeout(() => {
+        if (overlay.parentElement) {
+            overlay.style.animation = 'fadeOut 0.3s';
+            setTimeout(() => overlay.remove(), 300);
+        }
+    }, 8000);
 }
 
 function isBirthdayToday(dob) {
