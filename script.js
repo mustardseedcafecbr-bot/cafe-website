@@ -16,6 +16,27 @@ function generateUserId() {
     return 'user_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
 }
 
+// Check if URL has stamp parameter (from counter QR code scan)
+function checkForStampParameter() {
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.get('stamp') === 'add' && isRegistered) {
+        // Add stamp automatically
+        if (count < 4) {
+            count++;
+        } else {
+            count = 0;
+        }
+        localStorage.setItem('coffeeCount', count);
+        updateDisplay();
+        
+        // Show success message
+        alert('✅ Coffee stamp added! Thank you for your purchase!');
+        
+        // Clean URL (remove ?stamp=add parameter)
+        window.history.replaceState({}, document.title, window.location.pathname);
+    }
+}
+
 function isBirthdayToday(dob) {
     if (!dob) return false;
 
@@ -76,6 +97,7 @@ function showRegistrationForm() {
 // Check registration status on page load
 if (isRegistered) {
     showLoyaltyCard();
+    checkForStampParameter(); // Check if they scanned the counter QR code
 } else {
     showRegistrationForm();
 }

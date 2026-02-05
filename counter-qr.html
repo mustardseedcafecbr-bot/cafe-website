@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Counter QR Code - Mustard Seed Café Loyalty</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 800px;
+      margin: 50px auto;
+      padding: 20px;
+      text-align: center;
+    }
+    h1 {
+      color: #D4A574;
+    }
+    .qr-container {
+      margin: 30px auto;
+      padding: 30px;
+      background: white;
+      border: 2px solid #333;
+      display: inline-block;
+    }
+    .instructions {
+      background: #f5f5f5;
+      padding: 20px;
+      border-radius: 8px;
+      margin-top: 30px;
+      text-align: left;
+    }
+    .instructions h2 {
+      margin-top: 0;
+      color: #D4A574;
+    }
+    .instructions ol {
+      line-height: 1.8;
+    }
+    @media print {
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      .instructions {
+        display: none;
+      }
+      .no-print {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1 class="no-print">Mustard Seed Café - Counter QR Code</h1>
+  
+  <div class="qr-container">
+    <img src="https://api.qrserver.com/v1/create-qr-code/?size=500x500&data=https://mustardseedcafe.com.au/loyalty.html?stamp=add" 
+         alt="Counter QR Code" 
+         width="500" 
+         height="500">
+    <p style="margin-top: 15px; font-size: 18px; font-weight: bold;">Scan to Add Coffee Stamp</p>
+  </div>
+  
+  <div class="instructions no-print">
+    <h2>📋 How to Use This Counter QR Code</h2>
+    <ol>
+      <li><strong>Print this page</strong> - Click the print button below or use Ctrl+P (Cmd+P on Mac)</li>
+      <li><strong>Display at counter</strong> - Place the printed QR code where customers can easily scan it after purchase</li>
+      <li><strong>After each coffee purchase</strong> - Ask the customer to scan this QR code with their phone</li>
+      <li><strong>Customer scans</strong> - If they're registered, a stamp will be automatically added to their loyalty card</li>
+      <li><strong>Security</strong> - This QR code can only be scanned at your café counter, preventing fraud</li>
+    </ol>
+    
+    <h2>🔒 Security Features</h2>
+    <ul style="line-height: 1.8;">
+      <li>Customers can no longer manually add stamps - they must scan this counter QR code</li>
+      <li>Each scan adds only one stamp at a time</li>
+      <li>Only registered users can collect stamps</li>
+      <li>Physical presence at counter required to scan</li>
+    </ul>
+    
+    <button onclick="window.print()" style="background: #D4A574; color: white; border: none; padding: 15px 30px; font-size: 16px; border-radius: 5px; cursor: pointer; margin-top: 20px;">
+      🖨️ Print QR Code
+    </button>
+  </div>
+</body>
+</html>
