@@ -20,17 +20,25 @@ function generateUserId() {
 function checkForStampParameter() {
     const urlParams = new URLSearchParams(window.location.search);
     if (urlParams.get('stamp') === 'add' && isRegistered) {
+        // Check if they're redeeming free coffee
+        const wasEligibleForFree = count >= 4;
+        
         // Add stamp automatically
         if (count < 4) {
             count++;
         } else {
+            // They're redeeming their free coffee - reset to 0
             count = 0;
         }
         localStorage.setItem('coffeeCount', count);
         updateDisplay();
         
-        // Show prominent success message
-        showStampAddedMessage();
+        // Show appropriate message
+        if (wasEligibleForFree) {
+            showFreeCoffeeRedeemedMessage();
+        } else {
+            showStampAddedMessage();
+        }
         
         // Clean URL (remove ?stamp=add parameter)
         window.history.replaceState({}, document.title, window.location.pathname);
@@ -134,6 +142,158 @@ function showStampAddedMessage() {
             setTimeout(() => overlay.remove(), 300);
         }
     }, 8000);
+}
+
+function showFreeCoffeeRedeemedMessage() {
+    // Remove any existing message
+    const existing = document.getElementById('stamp-success-overlay');
+    if (existing) existing.remove();
+    
+    // Create confetti overlay with celebration message
+    const overlay = document.createElement('div');
+    overlay.id = 'stamp-success-overlay';
+    overlay.style.cssText = `
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(135deg, rgba(212, 165, 116, 0.95), rgba(45, 45, 45, 0.95));
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 9999;
+        animation: fadeIn 0.3s;
+        overflow: hidden;
+    `;
+    
+    overlay.innerHTML = `
+        <div style="
+            background: white;
+            padding: 50px 40px;
+            border-radius: 25px;
+            text-align: center;
+            max-width: 90%;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+            animation: celebrationBounce 0.6s;
+            position: relative;
+            z-index: 2;
+        ">
+            <div style="font-size: 100px; margin-bottom: 20px; animation: spin 1s ease-in-out;">🎉</div>
+            <h2 style="
+                color: #D4A574;
+                font-size: 36px;
+                font-weight: bold;
+                margin: 0 0 10px 0;
+                text-transform: uppercase;
+            ">FREE COFFEE REDEEMED!</h2>
+            <p style="
+                color: #2D2D2D;
+                font-size: 20px;
+                margin: 0 0 25px 0;
+                font-weight: 500;
+            ">Enjoy your complimentary coffee! ☕</p>
+            <div style="
+                background: linear-gradient(135deg, #D4A574, #c49564);
+                color: white;
+                padding: 20px;
+                border-radius: 15px;
+                margin: 20px 0;
+                font-size: 18px;
+            ">
+                <div style="font-size: 14px; opacity: 0.9; margin-bottom: 5px;">Your card has been reset</div>
+                <div style="font-size: 28px; font-weight: bold;">Start collecting again! 🎯</div>
+            </div>
+            <div style="
+                display: flex;
+                gap: 10px;
+                justify-content: center;
+                font-size: 50px;
+                margin: 20px 0;
+            ">
+                <span style="opacity: 0.2;">☕</span>
+                <span style="opacity: 0.2;">☕</span>
+                <span style="opacity: 0.2;">☕</span>
+                <span style="opacity: 0.2;">☕</span>
+            </div>
+            <button onclick="this.parentElement.parentElement.remove()" style="
+                background: #D4A574;
+                color: white;
+                border: none;
+                padding: 18px 50px;
+                font-size: 20px;
+                border-radius: 12px;
+                cursor: pointer;
+                font-weight: bold;
+                box-shadow: 0 4px 15px rgba(212, 165, 116, 0.4);
+            ">Awesome! 🎊</button>
+        </div>
+        
+        <!-- Confetti Animation -->
+        <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; pointer-events: none; z-index: 1;">
+            ${createConfetti()}
+        </div>
+        
+        <style>
+            @keyframes fadeIn {
+                from { opacity: 0; }
+                to { opacity: 1; }
+            }
+            @keyframes celebrationBounce {
+                0% { transform: scale(0.3) translateY(100px); opacity: 0; }
+                50% { transform: scale(1.05); }
+                100% { transform: scale(1); opacity: 1; }
+            }
+            @keyframes spin {
+                0% { transform: rotate(0deg) scale(0); }
+                50% { transform: rotate(180deg) scale(1.2); }
+                100% { transform: rotate(360deg) scale(1); }
+            }
+            @keyframes confettiFall {
+                0% { transform: translateY(-100vh) rotate(0deg); opacity: 1; }
+                100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
+            }
+            .confetti {
+                position: absolute;
+                width: 10px;
+                height: 10px;
+                animation: confettiFall 3s linear infinite;
+            }
+        </style>
+    `;
+    
+    document.body.appendChild(overlay);
+    
+    // Auto-remove after 10 seconds
+    setTimeout(() => {
+        if (overlay.parentElement) {
+            overlay.style.animation = 'fadeOut 0.5s';
+            setTimeout(() => overlay.remove(), 500);
+        }
+    }, 10000);
+}
+
+function createConfetti() {
+    let confettiHTML = '';
+    const colors = ['#D4A574', '#FF6B6B', '#4ECDC4', '#FFE66D', '#A8E6CF', '#FF8B94'];
+    
+    for (let i = 0; i < 50; i++) {
+        const left = Math.random() * 100;
+        const delay = Math.random() * 3;
+        const duration = 2 + Math.random() * 2;
+        const color = colors[Math.floor(Math.random() * colors.length)];
+        
+        confettiHTML += `
+            <div class="confetti" style="
+                left: ${left}%;
+                background: ${color};
+                animation-delay: ${delay}s;
+                animation-duration: ${duration}s;
+            "></div>
+        `;
+    }
+    
+    return confettiHTML;
 }
 
 function isBirthdayToday(dob) {
