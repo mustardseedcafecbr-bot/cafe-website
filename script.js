@@ -133,17 +133,15 @@ ${JSON.stringify({
 }, null, 2)}`);
 
     // Option 1: Email notification (opens email client)
-    const mailtoLink = `mailto:loyalty@mustardseedcafe.au?subject=${subject}&body=${body}`;
+    const mailtoLink = `mailto:mustardseedcafecbr@gmail.com?subject=${subject}&body=${body}`;
 
     // Option 2: Store in shared localStorage (for staff dashboard on same device)
     storeCustomerDataForStaff(name, email, dob, marketingConsent, userId, registrationDate);
 
     // Try to open email, but don't block if email client isn't available
     try {
-        // Only open email if user has consented to marketing
-        if (marketingConsent) {
-            window.open(mailtoLink, '_blank');
-        }
+        // Send email notification for all registrations
+        window.open(mailtoLink, '_blank');
     } catch (error) {
         console.log('Email notification not sent, but data stored locally');
     }
