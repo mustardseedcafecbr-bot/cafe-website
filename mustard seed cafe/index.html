@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mustard Seed Café | Trinity School Erindale • Wanniassa</title>
+  <meta name="description" content="Mustard Seed Café inside Trinity School Erindale. Fresh coffee, wholesome food, and warm community in Wanniassa, ACT." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="../style.css">
+  <style>
+    :root { 
+      --mustard: #D6A319; 
+      --charcoal: #1F2937; 
+      --cream: #FFFAF0; 
+    }
+    .grain { 
+      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><filter id="n"><feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="2" stitchTiles="stitch"/></filter><rect width="100%" height="100%" filter="url(%23n)" opacity=".04"/></svg>'); 
+    }
+    body { 
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, 'Apple Color Emoji', 'Segoe UI Emoji'; 
+    }
+    html { 
+      scroll-behavior: smooth; 
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+    }
+    .fade-in {
+      animation: fadeIn 0.6s ease-in-out;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="Mustard Seed Café — Trinity School Erindale" />
+  <meta property="og:description" content="Fresh coffee, wholesome food, and warm community in Wanniassa, ACT." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?q=80&w=1600&auto=format&fit=crop" />
+
+  <!-- JSON-LD LocalBusiness -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CafeOrCoffeeShop",
+    "name": "Mustard Seed Café",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "34 McBryde Cres",
+      "addressLocality": "Wanniassa",
+      "addressRegion": "ACT",
+      "postalCode": "2903",
+      "addressCountry": "AU"
+    },
+    "geo": {"@type":"GeoCoordinates","latitude":-35.4097,"longitude":149.1002},
+    "url": "",
+    "telephone": "+61 4 0000 0000",
+    "servesCuisine": ["Coffee", "Breakfast", "Lunch", "Baked Goods"],
+    "openingHoursSpecification": [
+      {"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"07:30","closes":"16:00"}
+    ],
+    "priceRange": "$",
+    "image": [
+      "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=1600&auto=format&fit=crop"
+    ]
+  }
+  </script>
+</head>
+<body class="bg-[var(--cream)] text-[var(--charcoal)]">
+
+  <!-- Announcement Bar -->
+  <div class="w-full bg-[var(--charcoal)] text-white text-sm py-2 text-center" role="banner">
+    <p class="px-4">Now brewing: seasonal single-origin espresso ☕️</p>
+  </div>
+
+  <!-- Header -->
+  <header class="sticky top-0 z-50 bg-[var(--cream)]/90 backdrop-blur grain border-b border-black/5">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-3 group">
+        <img src="../logo.png" alt="Mustard Seed Café Logo" class="w-50 h-50 rounded-full ring-2 ring-black/10 transition-transform group-hover:scale-110" style="width: 200px; height: 200px;" />
+      </a>
+      <nav class="hidden md:flex items-center gap-6 text-sm" aria-label="Main navigation">
+        <a href="index.html" class="text-[var(--mustard)] font-medium">Home</a>
+        <a href="about.html" class="hover:text-[var(--mustard)] transition-colors">About</a>
+        <a href="mission.html" class="hover:text-[var(--mustard)] transition-colors">Mission</a>
+        <a href="hours.html" class="hover:text-[var(--mustard)] transition-colors">Hours</a>
+        <a href="gallery.html" class="hover:text-[var(--mustard)] transition-colors">Gallery</a>
+        <a href="loyalty.html" class="hover:text-[var(--mustard)] transition-colors">Loyalty</a>
+        <a href="findus.html" class="hover:text-[var(--mustard)] transition-colors">Find us</a>
+        <a href="contact.html" class="px-4 py-2 rounded-full bg-[var(--mustard)] text-[var(--charcoal)] font-medium hover:bg-[var(--mustard)]/90 transition-all hover:shadow-lg">Contact</a>
+      </nav>
+      <button id="mobileBtn" class="md:hidden p-2 rounded hover:bg-black/5 transition-colors" aria-label="Toggle menu" aria-expanded="false">☰</button>
+    </div>
+    <div id="mobileNav" class="md:hidden hidden border-t border-black/5" aria-label="Mobile navigation">
+      <nav class="px-4 py-3 grid gap-3 text-sm">
+        <a href="index.html" class="text-[var(--mustard)] font-medium py-1">Home</a>
+        <a href="about.html" class="py-1 hover:text-[var(--mustard)] transition-colors">About</a>
+        <a href="mission.html" class="py-1 hover:text-[var(--mustard)] transition-colors">Mission</a>
+        <a href="hours.html" class="py-1 hover:text-[var(--mustard)] transition-colors">Hours</a>
+        <a href="gallery.html" class="py-1 hover:text-[var(--mustard)] transition-colors">Gallery</a>
+        <a href="loyalty.html" class="py-1 hover:text-[var(--mustard)] transition-colors">Loyalty</a>
+        <a href="findus.html" class="py-1 hover:text-[var(--mustard)] transition-colors">Find us</a>
+        <a href="contact.html" class="py-2 px-3 rounded bg-[var(--mustard)] text-[var(--charcoal)] font-medium inline-block w-max hover:bg-[var(--mustard)]/90 transition-colors">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section id="home" class="relative overflow-hidden" aria-labelledby="hero-heading">
+    <div class="absolute inset-0 -z-10">
+      <img src="../images/img1.png" alt="" class="w-full h-full object-cover opacity-70" loading="eager">
+      <div class="absolute inset-0 bg-gradient-to-t from-[var(--cream)] via-[var(--cream)]/70 to-transparent"></div>
+    </div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-28 md:py-40">
+      <h1 id="hero-heading" class="text-4xl md:text-6xl font-extrabold tracking-tight max-w-3xl fade-in">Good coffee. Good food. Good company.</h1>
+      <p class="mt-4 md:text-lg max-w-2xl text-[var(--charcoal)]/80">Inside Trinity School Erindale, we serve everyday comfort—espresso, fresh bakes, and nourishing plates—made with care for our school and local community.</p>
+      <div class="mt-8 flex flex-wrap gap-3">
+        <a href="findus.html" class="px-5 py-3 rounded-full bg-[var(--mustard)] text-[var(--charcoal)] font-medium hover:bg-[var(--mustard)]/90 transition-all hover:shadow-lg">Get Directions</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-10 grain">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 grid md:grid-cols-3 gap-8 text-sm">
+      <div>
+        <div class="font-semibold">Mustard Seed Café</div>
+        <p class="mt-2">Inside Trinity School Erindale</p>
+        <p>34 McBryde Cres, Wanniassa ACT 2903</p>
+      </div>
+      <div>
+        <div class="font-semibold">Hours</div>
+        <p class="mt-2">Mon–Fri: 7:30 AM – 4:00 PM</p>
+        <p>Sat–Sun: Closed</p>
+      </div>
+      <div>
+        <div class="font-semibold">Get in touch</div>
+        <p class="mt-2">(02) 6210 7500</p>
+      </div>
+    </div>
+    <div class="mt-8 text-center text-xs text-black/60">© <span id="year"></span> Mustard Seed Café. All rights reserved.</div>
+  </footer>
+
+  <script>
+    // Mobile nav toggle
+    const btn = document.getElementById('mobileBtn');
+    const nav = document.getElementById('mobileNav');
+    btn?.addEventListener('click', () => {
+      const isExpanded = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', !isExpanded);
+      nav.classList.toggle('hidden');
+    });
+
+    // Close mobile nav when clicking a link
+    nav?.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        nav.classList.add('hidden');
+        btn.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    // Contact & Catering forms
+    function handleContact(e) { 
+      e.preventDefault(); 
+      const note = document.getElementById('contactNote');
+      note.classList.remove('hidden'); 
+      e.target.reset();
+      setTimeout(() => note.classList.add('hidden'), 5000);
+      return false; 
+    }
+    
+    function handleCatering(e) { 
+      e.preventDefault(); 
+      const note = document.getElementById('cateringNote');
+      note.classList.remove('hidden'); 
+      e.target.reset();
+      setTimeout(() => note.classList.add('hidden'), 5000);
+      return false; 
+    }
+
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+  </script>
+  <script src="../script.js"></script>
+</body>
+</html>

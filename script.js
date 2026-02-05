@@ -108,43 +108,26 @@ if (registerForm) {
 
 function sendRegistrationEmail(name, email, dob, marketingConsent, userId) {
     const registrationDate = new Date().toLocaleDateString();
-    const subject = encodeURIComponent(`New Loyalty Program Registration - ${name}`);
-    const body = encodeURIComponent(`New customer registered for loyalty program:
 
-Name: ${name}
-Email: ${email}
-Date of Birth: ${dob || 'Not provided'}
-Marketing Consent: ${marketingConsent ? 'Yes' : 'No'}
-User ID: ${userId}
-Registration Date: ${registrationDate}
+    // Send email via EmailJS
+    const templateParams = {
+        name: name,
+        email: email,
+        dob: dob || 'Not provided',
+        marketingConsent: marketingConsent ? 'Yes' : 'No',
+        userId: userId,
+        registrationDate: registrationDate
+    };
 
-Customer data collected for marketing purposes.
+    emailjs.send('service_79ke1ns', 'template_7c2wack', templateParams)
+        .then(function(response) {
+            console.log('Email sent successfully!', response.status, response.text);
+        }, function(error) {
+            console.log('Email failed to send:', error);
+        });
 
----
-To add this customer to your database, copy this data:
-${JSON.stringify({
-    userId,
-    name,
-    email,
-    dob,
-    marketingConsent,
-    registrationDate,
-    coffeeCount: 0
-}, null, 2)}`);
-
-    // Option 1: Email notification (opens email client)
-    const mailtoLink = `mailto:mustardseedcafecbr@gmail.com?subject=${subject}&body=${body}`;
-
-    // Option 2: Store in shared localStorage (for staff dashboard on same device)
+    // Store in shared localStorage (for staff dashboard on same device)
     storeCustomerDataForStaff(name, email, dob, marketingConsent, userId, registrationDate);
-
-    // Try to open email, but don't block if email client isn't available
-    try {
-        // Send email notification for all registrations
-        window.open(mailtoLink, '_blank');
-    } catch (error) {
-        console.log('Email notification not sent, but data stored locally');
-    }
 
     // Show success message
     showRegistrationSuccess(name);

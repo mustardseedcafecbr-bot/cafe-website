@@ -9,13 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-  <script type="text/javascript">
-    (function(){
-      emailjs.init("siJqd3eAzQcSjfQnK");
-    })();
-  </script>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="../style.css">
   <style>
     :root { 
       --mustard: #D6A319; 
@@ -42,7 +36,7 @@
   <header class="sticky top-0 z-50 bg-[var(--cream)]/90 backdrop-blur grain border-b border-black/5">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between">
       <a href="index.html" class="flex items-center gap-3 group">
-        <img src="logo.png" alt="Mustard Seed Café Logo" class="w-50 h-50 rounded-full ring-2 ring-black/10 transition-transform group-hover:scale-110" style="width: 200px; height: 200px;" />
+        <img src="../logo.png" alt="Mustard Seed Café Logo" class="w-50 h-50 rounded-full ring-2 ring-black/10 transition-transform group-hover:scale-110" style="width: 200px; height: 200px;" />
       </a>
       <nav class="hidden md:flex items-center gap-6 text-sm" aria-label="Main navigation">
         <a href="index.html" class="hover:text-[var(--mustard)] transition-colors">Home</a>
@@ -116,7 +110,7 @@
       <div id="qr-section" class="mb-12">
         <h2 class="text-2xl font-semibold mb-4">Scan to Access Your Digital Card</h2>
         <div class="inline-block p-4 bg-white rounded-lg shadow-lg">
-          <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://mustardseedcafe.com.au/loyalty.html" alt="QR Code to access digital loyalty card" class="w-48 h-48" />
+          <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://mustardseedcafe.au/loyalty.html" alt="QR Code to access digital loyalty card" class="w-48 h-48" />
         </div>
         <p class="mt-4 text-sm text-[var(--charcoal)]/70">Scan with your phone's camera or QR code reader</p>
       </div>
@@ -181,7 +175,7 @@
     </div>
   </footer>
 
-  <script src="script.js"></script>
+  <script src="../script.js"></script>
   <script>
     // Mobile nav toggle
     const btn = document.getElementById('mobileBtn');

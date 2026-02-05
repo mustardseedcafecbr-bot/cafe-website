@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact Us - Mustard Seed Café</title>
+  <meta name="description" content="Get in touch with Mustard Seed Café for questions, feedback, or catering enquiries." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root { 
+      --mustard: #D6A319; 
+      --charcoal: #1F2937; 
+      --cream: #FFFAF0; 
+    }
+    .grain { 
+      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><filter id="n"><feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="2" stitchTiles="stitch"/></filter><rect width="100%" height="100%" filter="url(%23n)" opacity=".04"/></svg>'); 
+    }
+    body { 
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, 'Apple Color Emoji', 'Segoe UI Emoji'; 
+    }
+    html { 
+      scroll-behavior: smooth; 
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+    }
+  </style>
+</head>
+<body class="bg-[var(--cream)] text-[var(--charcoal)]">
+
+  <!-- Header -->
+  <header class="sticky top-0 z-50 bg-[var(--cream)]/90 backdrop-blur grain border-b border-black/5">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-3 group">
+        <img src="../logo.png" alt="Mustard Seed Café Logo" class="w-50 h-50 rounded-full ring-2 ring-black/10 transition-transform group-hover:scale-110" style="width: 200px; height: 200px;" />
+      </a>
+      <nav class="hidden md:flex items-center gap-6 text-sm" aria-label="Main navigation">
+        <a href="index.html" class="hover:text-[var(--mustard)] transition-colors">Home</a>
+        <a href="about.html" class="hover:text-[var(--mustard)] transition-colors">About</a>
+        <a href="mission.html" class="hover:text-[var(--mustard)] transition-colors">Mission</a>
+        <a href="hours.html" class="hover:text-[var(--mustard)] transition-colors">Hours</a>
+        <a href="gallery.html" class="hover:text-[var(--mustard)] transition-colors">Gallery</a>
+        <a href="loyalty.html" class="hover:text-[var(--mustard)] transition-colors">Loyalty</a>
+        <a href="findus.html" class="hover:text-[var(--mustard)] transition-colors">Find us</a>
+        <a href="contact.html" class="px-4 py-2 rounded-full bg-[var(--mustard)] text-[var(--charcoal)] font-medium hover:bg-[var(--mustard)]/90 transition-all hover:shadow-lg">Contact</a>
+      </nav>
+      <button id="mobileBtn" class="md:hidden p-2 rounded hover:bg-black/5 transition-colors" aria-label="Toggle menu" aria-expanded="false">☰</button>
+    </div>
+    <div id="mobileNav" class="md:hidden hidden border-t border-black/5" aria-label="Mobile navigation">
+      <nav class="px-4 py-3 grid gap-3 text-sm">
+        <a href="index.html" class="py-1 hover:text-[var(--mustard)] transition-colors">Home</a>
+        <a href="about.html" class="py-1 hover:text-[var(--mustard)] transition-colors">About</a>
+        <a href="mission.html" class="py-1 hover:text-[var(--mustard)] transition-colors">Mission</a>
+        <a href="hours.html" class="py-1 hover:text-[var(--mustard)] transition-colors">Hours</a>
+        <a href="gallery.html" class="py-1 hover:text-[var(--mustard)] transition-colors">Gallery</a>
+        <a href="loyalty.html" class="py-1 hover:text-[var(--mustard)] transition-colors">Loyalty</a>
+        <a href="findus.html" class="py-1 hover:text-[var(--mustard)] transition-colors">Find us</a>
+        <a href="contact.html" class="py-2 px-3 rounded bg-[var(--mustard)] text-[var(--charcoal)] font-medium inline-block w-max hover:bg-[var(--mustard)]/90 transition-colors">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Contact & Catering -->
+  <section class="py-16 md:py-24 bg-white">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 grid lg:grid-cols-2 gap-12">
+      <div>
+        <h1 class="text-4xl font-bold">Say hello</h1>
+        <p class="mt-2 text-black/70">Questions, feedback, or a simple coffee chat—drop us a note.</p>
+        <form id="contactForm" class="mt-6 grid gap-3" onsubmit="return handleContact(event)">
+          <label class="grid gap-1">
+            <span class="text-sm font-medium">Name <span class="text-red-500">*</span></span>
+            <input required class="border rounded px-3 py-2 focus:ring-2 focus:ring-[var(--mustard)] focus:border-transparent outline-none transition-all" name="name" placeholder="Your name" />
+          </label>
+          <label class="grid gap-1">
+            <span class="text-sm font-medium">Email <span class="text-red-500">*</span></span>
+            <input required type="email" class="border rounded px-3 py-2 focus:ring-2 focus:ring-[var(--mustard)] focus:border-transparent outline-none transition-all" name="email" placeholder="you@example.com" />
+          </label>
+          <label class="grid gap-1">
+            <span class="text-sm font-medium">Message <span class="text-red-500">*</span></span>
+            <textarea required class="border rounded px-3 py-2 focus:ring-2 focus:ring-[var(--mustard)] focus:border-transparent outline-none transition-all" name="message" rows="4" placeholder="How can we help?" ></textarea>
+          </label>
+          <button type="submit" class="mt-2 px-4 py-2 rounded bg-[var(--mustard)] text-[var(--charcoal)] font-medium w-max hover:bg-[var(--mustard)]/90 transition-all hover:shadow-lg">Send Message</button>
+          <p id="contactNote" class="text-sm text-green-700 hidden" role="status">✓ Thanks! We'll reply soon.</p>
+        </form>
+      </div>
+
+      <div>
+        <h1 class="text-4xl font-bold">Catering enquiries</h1>
+        <p class="mt-2 text-black/70">Simple platters & drinks for meetings, assemblies, or school events.</p>
+        <form id="cateringForm" class="mt-6 grid gap-3" onsubmit="return handleCatering(event)">
+          <div class="grid grid-cols-2 gap-3">
+            <label class="grid gap-1">
+              <span class="text-sm font-medium">Name <span class="text-red-500">*</span></span>
+              <input required class="border rounded px-3 py-2 focus:ring-2 focus:ring-[var(--mustard)] focus:border-transparent outline-none transition-all" name="name" />
+            </label>
+            <label class="grid gap-1">
+              <span class="text-sm font-medium">Email <span class="text-red-500">*</span></span>
+              <input required type="email" class="border rounded px-3 py-2 focus:ring-2 focus:ring-[var(--mustard)] focus:border-transparent outline-none transition-all" name="email" />
+            </label>
+          </div>
+          <div class="grid grid-cols-2 gap-3">
+            <label class="grid gap-1">
+              <span class="text-sm font-medium">Date <span class="text-red-500">*</span></span>
+              <input required type="date" class="border rounded px-3 py-2 focus:ring-2 focus:ring-[var(--mustard)] focus:border-transparent outline-none transition-all" name="date" />
+            </label>
+            <label class="grid gap-1">
+              <span class="text-sm font-medium">Headcount <span class="text-red-500">*</span></span>
+              <input required type="number" min="1" class="border rounded px-3 py-2 focus:ring-2 focus:ring-[var(--mustard)] focus:border-transparent outline-none transition-all" name="headcount" placeholder="e.g. 20" />
+            </label>
+          </div>
+          <label class="grid gap-1">
+            <span class="text-sm font-medium">Notes</span>
+            <textarea class="border rounded px-3 py-2 focus:ring-2 focus:ring-[var(--mustard)] focus:border-transparent outline-none transition-all" name="notes" rows="4" placeholder="Dietary needs, timing, budget"></textarea>
+          </label>
+          <button type="submit" class="mt-2 px-4 py-2 rounded bg-[var(--charcoal)] text-white font-medium w-max hover:bg-[var(--charcoal)]/90 transition-all hover:shadow-lg">Request Quote</button>
+          <p id="cateringNote" class="text-sm text-green-700 hidden" role="status">✓ Thanks! We'll email you a quote.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-[var(--charcoal)] text-white py-12">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 grid md:grid-cols-3 gap-8">
+      <div>
+        <h3 class="font-semibold mb-4">Mustard Seed Café</h3>
+        <p class="text-sm text-white/80">Inside Trinity Christian School, Wanniassa</p>
+        <p class="text-sm text-white/80 mt-2">Open Mon-Fri 7:30am-2:30pm</p>
+      </div>
+      <div>
+        <h3 class="font-semibold mb-4">Quick Links</h3>
+        <ul class="text-sm space-y-2">
+          <li><a href="about.html" class="text-white/80 hover:text-white transition-colors">About</a></li>
+          <li><a href="loyalty.html" class="text-white/80 hover:text-white transition-colors">Loyalty Program</a></li>
+          <li><a href="findus.html" class="text-white/80 hover:text-white transition-colors">Find Us</a></li>
+          <li><a href="contact.html" class="text-white/80 hover:text-white transition-colors">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="font-semibold mb-4">Contact Info</h3>
+        <p class="text-sm text-white/80">34 McBryde Cres, Wanniassa ACT 2903</p>
+        <p class="text-sm text-white/80 mt-2">Phone: (02) 6210 7500</p>
+      </div>
+    </div>
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 mt-8 pt-8 border-t border-white/10 text-center text-sm text-white/60">
+      <p>&copy; <span id="year"></span> Mustard Seed Café. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile nav toggle
+    const btn = document.getElementById('mobileBtn');
+    const nav = document.getElementById('mobileNav');
+    btn.addEventListener('click', () => {
+      const expanded = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', !expanded);
+      nav.classList.toggle('hidden');
+    });
+
+    // Close mobile nav on link click
+    nav.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        nav.classList.add('hidden');
+        btn.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    // Contact & Catering forms
+    function handleContact(e) { 
+      e.preventDefault(); 
+      const note = document.getElementById('contactNote');
+      note.classList.remove('hidden'); 
+      e.target.reset();
+      setTimeout(() => note.classList.add('hidden'), 5000);
+      return false; 
+    }
+    
+    function handleCatering(e) { 
+      e.preventDefault(); 
+      const note = document.getElementById('cateringNote');
+      note.classList.remove('hidden'); 
+      e.target.reset();
+      setTimeout(() => note.classList.add('hidden'), 5000);
+      return false; 
+    }
+
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
